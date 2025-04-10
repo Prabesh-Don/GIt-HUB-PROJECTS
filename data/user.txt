@@ -1,2 +1,0 @@
-admin,Admin User,admin
-student1,Prabesh Kafle,student
