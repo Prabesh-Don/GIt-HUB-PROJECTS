@@ -1,0 +1,5 @@
+username,full_name,role,student_id,section
+admin,Admin User,admin,ADM001,A
+john,John Doe,student,STD001,B
+jane,Jane Smith,student,STD002,A
+
