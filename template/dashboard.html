@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+</head>
+<body>
+    <h1>Welcome to the Student Dashboard</h1>
+    <p>Username: {{ username }}</p>
+    <p>Role: {{ role }}</p>
+    <p>University ID: {{ uni_id }}</p>
+    <p>Section: {{ section }}</p>
+
+    <h2>Your Grades</h2>
+    <ul>
+        {% for grade in grades %}
+            <li>{{ grade }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>ECAs</h2>
+    <ul>
+        {% for item in eca %}
+            <li>{{ item }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

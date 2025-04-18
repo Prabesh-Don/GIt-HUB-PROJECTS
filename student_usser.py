@@ -67,18 +67,36 @@ def login():
     return render_template('login.html')
 
 
+from authenticator import get_student_grades  # Make sure this is at the top
+
+from flask import Flask, render_template, request
+from authenticator import get_student_grades  # Or any relevant imports for your project
+
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    return 'Hello, Flask is running!'
+
 @app.route('/dashboard')
 def dashboard():
     username = request.args.get('username')
     role = request.args.get('role')
     uni_id = request.args.get('uni_id')
     section = request.args.get('section')
-    return render_template('dashboard.html', username=username, role=role, uni_id=uni_id, section=section)
 
+    grades = get_student_grades(username)
+    eca = []  # Empty list for now (since no ECA file)
+
+    return render_template(
+        'dashboard.html',
+        username=username,
+        role=role,
+        uni_id=uni_id,
+        section=section,
+        grades=grades,
+        eca=eca
+    )
 
 if __name__ == '__main__':
-    # Ensure the data directory exists
-    if not os.path.exists('data'):
-        os.makedirs('data')
-    
     app.run(debug=True)
